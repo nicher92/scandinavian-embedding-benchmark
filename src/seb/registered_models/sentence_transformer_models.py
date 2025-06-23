@@ -540,6 +540,25 @@ def create_memo_bert_03() -> SebModel:
     )
 
 
+
+@models.register("nicher92/embedding_model_one_epoch")
+def create_embedding_model_one_epoch() -> SebModel:
+    hf_name = "nicher92/embedding_model_one_epoch"
+    meta = ModelMeta(
+        name=hf_name.split("/")[-1],
+        huggingface_name=hf_name,
+        reference=f"https://huggingface.co/{hf_name}",
+        languages=["sv"],
+        open_source=True,
+        embedding_size=768,
+        architecture="BERT",
+        release_date=date(2025, 6, 23),
+    )
+    return SebModel(
+        encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),
+        meta=meta,
+    )
+
 if __name__ == "__main__":
     import seb
 
