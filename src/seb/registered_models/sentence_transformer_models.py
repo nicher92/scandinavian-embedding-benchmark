@@ -541,7 +541,7 @@ def create_memo_bert_03() -> SebModel:
 
 
 
-@models.register("nicher92/embedding_model_one_epoch")
+@models.register("embedding_model_one_epoch")
 def create_embedding_model_one_epoch() -> SebModel:
     hf_name = "nicher92/embedding_model_one_epoch"
     meta = ModelMeta(
