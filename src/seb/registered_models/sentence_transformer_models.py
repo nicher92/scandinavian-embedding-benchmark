@@ -540,7 +540,6 @@ def create_memo_bert_03() -> SebModel:
     )
 
 
-
 @models.register("embedding_model_one_epoch")
 def create_embedding_model_one_epoch() -> SebModel:
     hf_name = "nicher92/embedding_model_one_epoch"
@@ -558,6 +557,7 @@ def create_embedding_model_one_epoch() -> SebModel:
         encoder=LazyLoadEncoder(partial(wrap_sentence_transformer, model_name=hf_name)),
         meta=meta,
     )
+
 
 if __name__ == "__main__":
     import seb
